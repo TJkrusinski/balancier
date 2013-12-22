@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/TJkrusinski/balancier",
   "devDependencies": {
-    "http-proxy": "~0.10.3"
+    "http-proxy": "~0.10.3",
+    "chai": "~1.8.1"
   }
 }

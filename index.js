@@ -1,7 +1,6 @@
 'use strict';
 
-var http = require('http'),
-	balancier = {
+var balancier = {
 	_backends: [],
 };
 
@@ -13,7 +12,9 @@ var http = require('http'),
  *	@param {Object} proxy
  */
 balancier.middleware = function(req, res, proxy) {
-	
+	var backend = this._backends.shift();
+	proxy.proxyRequest(req, res, backend);
+	this._backends.push(backend);
 };
 
 /**
@@ -47,19 +48,16 @@ balancier.remBackend = function(backend) {
 	});
 
 	if (!~index) return false;
-
-	this._backends.splice(index, 1);
-
-	return true;
+	return !!this._backends.splice(index, 1).length;
 };
 
 /**
- *	Listen
- *	@method listen
- *	@param {Number} port
+ *	Get backends
+ *	@method get
+ *	@return {Array}
  */
-exports.listen = function(port) {
-	
+balancier.getBackends = balancier.getBackend = function() {
+	return this._backends;
 };
 
 module.exports = balancier;

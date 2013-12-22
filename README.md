@@ -2,7 +2,7 @@
 
 It's got a french name.
 
-Balancier is a round robin load balancer middleware for [node-http-proxy](https://github.com/nodejitsu/node-http-proxy). I did not build this with it being intended for use in production, it is not secure at all, so you may want to fork it and implement some kind of security strategy if you actually want to use it. I built this for a project that did not require WebSockets, so it doesn't support WebSockets per http-proxy's needs.
+Balancier is a round robin load balancer middleware for [node-http-proxy](https://github.com/nodejitsu/node-http-proxy). I did not build this with it being intended for use in production. I built this for a project that did not require WebSockets, so it doesn't support WebSockets per http-proxy's needs.
 
 ### Example
 
@@ -29,8 +29,6 @@ balancier.setBackend([
  *	Pass in our middleware for balancier
  */
 var server = httpProxy.createServer(balancier.middleware, options);
-
-balancier.listen(8001);
 
 server.listen(8000);
 

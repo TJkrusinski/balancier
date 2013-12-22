@@ -1,0 +1,29 @@
+{
+  "name": "balancier",
+  "version": "0.0.0",
+  "description": "round robin load balancer",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TJkrusinski/balancier.git"
+  },
+  "keywords": [
+    "load",
+    "balancer",
+    "round",
+    "robin",
+    "proxy"
+  ],
+  "author": "TJ Krusinski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TJkrusinski/balancier/issues"
+  },
+  "homepage": "https://github.com/TJkrusinski/balancier",
+  "devDependencies": {
+    "http-proxy": "~0.10.3"
+  }
+}

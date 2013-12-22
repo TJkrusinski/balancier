@@ -6,7 +6,7 @@ Balancier is a round robin load balancer middleware for [node-http-proxy](https:
 
 ### Example
 
-```
+```javascript
 var httpProxy = require('http-proxy'),
 	balancier = require('balancier');
 
@@ -32,6 +32,38 @@ var server = httpProxy.createServer(balancier.middleware, options);
 
 server.listen(8000);
 
+```
+
+### Adding and removing servers
+
+```javascript
+/**
+ *	Add servers
+ *	You can pass in one server or an array of servers
+ *	Servers will not be added unless they has a `host` and a `port`
+ */
+var result = balancier.setBackend({
+	host: '127.0.0.1',
+	port: 3002
+});
+
+console.log(result); // true if the server was removed successfully
+
+/**
+ *	Remove servers
+ */
+balancier.remBackend({
+	host: '127.0.0.1',
+	port: 3002
+});
+
+console.log(result); // true if the server was removed successfully
+
+/**
+ *	See all servers
+ */
+var servers = balancier.getBackends();
+console.log(servers); // [ { server1 }, { serverN } ]
 ```
 
 ## Running tests

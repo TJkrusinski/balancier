@@ -3,9 +3,9 @@
 var bala = require(__dirname+'/../index.js'),
 	assert = require('chai').assert;
 
-describe('balancier#setBackend()', function(){
+describe('balancier#add()', function(){
 	it('adds a backend to the list', function(){
-		var res = bala.setBackend({
+		var res = bala.add({
 			port: 3000,
 			host: 'myhost.com'
 		});
@@ -15,9 +15,9 @@ describe('balancier#setBackend()', function(){
 	});
 });
 
-describe('balancier#remBackend()', function(){
+describe('balancier#remove()', function(){
 	it('removes a backend to the list', function(){
-		var res = bala.remBackend({
+		var res = bala.remove({
 			port: 3000,
 			host: 'myhost.com'
 		});
@@ -27,9 +27,9 @@ describe('balancier#remBackend()', function(){
 	});
 });
 
-describe('balancier#setBackend()', function(){
+describe('balancier#add()', function(){
 	it('adds 2 backends to the list', function(){
-		var res = bala.setBackend([
+		var res = bala.add([
 			{
 				port: 3000,
 				host: 'myhost.com'
@@ -46,9 +46,9 @@ describe('balancier#setBackend()', function(){
 	});
 });
 
-describe('balancier#remBackend()', function(){
+describe('balancier#remove()', function(){
 	it('removes a backend to the list', function(){
-		var res = bala.remBackend({
+		var res = bala.remove({
 			port: 3000,
 			host: 'myhost.com'
 		});
@@ -59,9 +59,9 @@ describe('balancier#remBackend()', function(){
 	});
 });
 
-describe('balancier#remBackend()', function(){
+describe('balancier#remove()', function(){
 	it('removes a backend to the list', function(){
-		var res = bala.remBackend({
+		var res = bala.remove({
 			port: 3000,
 			host: '2.myhost.com'
 		});

@@ -13,7 +13,7 @@ var httpProxy = require('http-proxy'),
 /**
  *	Give the proxy something to start with
  */
-balancier.setBackend([
+balancier.add([
 	{
 		host: '127.0.0.1',
 		port: 3000
@@ -42,7 +42,7 @@ server.listen(8000);
  *	You can pass in one server or an array of servers
  *	Servers will not be added unless they has a `host` and a `port`
  */
-var result = balancier.setBackend({
+var result = balancier.add({
 	host: '127.0.0.1',
 	port: 3002
 });
@@ -52,7 +52,7 @@ console.log(result); // true if the server was removed successfully
 /**
  *	Remove servers
  */
-balancier.remBackend({
+balancier.remove({
 	host: '127.0.0.1',
 	port: 3002
 });
